@@ -7,7 +7,6 @@ import random
 import obd
 import eel
 import time
-import datetime
 
 eel.init('web')
 lastVoiceLine = time.time()
