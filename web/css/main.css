@@ -1,0 +1,264 @@
+
+html{
+  width:  100%;
+  height: 100%;
+}
+
+:root {
+  --trim1: orange;
+  --trim2: cyan;
+}
+
+body {
+    background-image: url(../img/background.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    height: 75%;
+}
+
+.circles{
+  top:0px;
+  left:0px;
+  position:absolute;
+  width: 400px;
+  height: 400px;
+}
+.circle {
+    top: 20%;
+    left: 20%;
+    height:60%;
+    width:60%;
+    position: absolute;
+    background-color: black;
+    border-radius: 50%;
+    display: inline-block;
+    z-index: 5;
+    opacity: 100%;
+    text-align: center;
+    border: 2px solid var(--trim1);
+}
+
+.speedo {
+    top: 10px;
+    left: 380px;
+    height:180px;
+    width:180px;
+    position: absolute;
+    background-color: black;
+    border-radius: 50%;
+    display: inline-block;
+    z-index: 5;
+    opacity: 100%;
+    text-align: center;
+    border: 2px solid var(--trim1);
+}
+
+.orbitCircle1{
+  top: 10px;
+  left: 200px;
+  z-index: 0;
+  width: 370px;
+  height: 180px;
+  opacity: 30%;
+  position:absolute;
+  border: 2px solid var(--trim2);
+  border-bottom-right-radius:90px;  /* 100px of height + 10px of border */
+  border-top-right-radius: 90px;
+}
+
+.halfCircle {
+    top: 10px;
+    left: 200px;
+    height:380px;
+    width:190px;
+    opacity: 75%;
+
+    position: absolute;
+    border-bottom-right-radius: 200px; /* 100px of height + 10px of border */
+    border-top-right-radius: 200px; /* 100px of height + 10px of border */
+    background-color: black;
+    border: 2px solid var(--trim1);
+    z-index: 4;
+}
+
+.rpm {
+    font-weight: 200;
+    font-size: 60px;
+    line-height: normal;
+    color: #fff;
+    font-variant-numeric: lining-nums;
+    font-family: calamity;
+}
+.rpmSmall {
+    text-align: center;
+    font-weight: 200;
+    font-size: 30px;
+    line-height: normal;
+    color: #fff;
+    font-family: sabre;
+}
+
+.blueCircle{
+  top:0px;
+  left:0px;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  opacity: 25%;
+  position:absolute;
+  background-image: url(../img/circle.png);
+  animation: spinInv 80s infinite linear;
+  background-repeat: no-repeat;
+}
+
+.cyanCircle{
+  top:0px;
+  left:0px;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  opacity: 20%;
+  position:absolute;
+  background-image: url(../img/circle1.png);
+  animation: spin 50s infinite linear;
+  background-repeat: no-repeat;
+}
+
+.whiteCircle{
+  top:0px;
+  left:0px;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  opacity: 30%;
+  position:absolute;
+  background-image: url(../img/circle2.png);
+  animation: spinInv 40s infinite linear;
+  background-repeat: no-repeat;
+}
+
+/*Keyframes*/
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes spinInv {
+  from {
+    transform: rotate(359deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/*Fonts*/
+@font-face {
+    font-family: sabre;
+    src: url(../fonts/sabreshark.ttf);
+}
+@font-face {
+    font-family: mexon;
+    src: url(../fonts/Mexon.ttf);
+}
+@font-face {
+    font-family: mech;
+    src: url(../fonts/Mechsuit.otf);
+}
+@font-face {
+    font-family: glitch;
+    src: url(../fonts/Glitch_inside.otf);
+}
+@font-face {
+    font-family: calamity;
+    src: url(../fonts/Calamity.otf);
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.butt{
+  top:420px;
+  left:0px;
+  height: 50px;
+  width: 820px;
+  font-family: sabre;
+  position:absolute;
+  background-color: black;
+  border: 2px solid var(--trim1);
+}
+
+.popup{
+  top:10%;
+  left:10%;
+  height: 80%;
+  width: 80%;
+  opacity: 100;
+  font-family: sabre;
+  position:absolute;
+  background-color: black;
+  border: 2px solid var(--trim1);
+  z-index: 200;
+}
+
+.debug{
+  top:200px;
+  left:420px;
+  height: 200px;
+  width: 400px;
+  font-family: monospsace;
+  font-size: 20px;
+  position:absolute;
+  background-color: black;
+  border: 2px solid var(--trim1);
+}
+
+.waringSmall{
+  position: absolute;
+  top: 330px;
+  height: 70px;
+}
+
+.warningsOn{
+  animation: blinker .5s linear infinite;
+}
+.warningsOff{
+  animation: none;
+  opacity: 10%;
+}
+
+.waringSmaller{
+  position: absolute;
+  top: 0px;
+  left: 95px;
+  height: 30px;
+}
+
+.num {
+    text-align: center;
+    font-weight: 200;
+    font-size: 30px;
+    line-height: normal;
+    color: #fff;
+    font-family: calamity;
+}
+
+.connectionStatus{
+  font-size: 30px;
+  font-family: monospsace;
+  color: #fff;
+}
+
+.details{
+  font-family: mech;
+  color: var(--trim1);
+  font-size: 20px;
+}

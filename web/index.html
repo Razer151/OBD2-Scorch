@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scorch 3.0.2</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <script type="text/javascript" src="/eel.js"></script>
+
+</head>
+<body>
+
+<div class = "popup">
+
+
+</div>
+
+<span class="details">////</span>
+
+<div class = "circles">
+<div class="halfCircle" ></div>
+<div id = "spinner" class="whiteCircle" ></div>
+<div class="blueCircle"></div>
+<div class="cyanCircle"></div>
+<span class = "circle">
+</br></br></br></br>
+    <span id="rpm" class="rpm">0000</span> <br>
+    <span class="rpmSmall">RPM</span>
+</span>
+</div>
+
+<div class = "orbitGauge">
+<span class = "speedo">
+</br></br>
+    <span id="speed" class="rpm">000</span> <br>
+    <span class="rpmSmall">KPH</span>
+</span>
+<div class="orbitCircle1"></div>
+
+</div>
+
+<div class = "debug">
+  <span class="connectionStatus">Fuel:    </span>
+  <span id = "fuel" class="num"> 00%</span>
+  </br>
+  <span class="connectionStatus">Speed:   </span>
+  <span id = "speed" class="num"> 000 KPH</span>
+  </br>
+  <span class="connectionStatus">Throttle: </span>
+  <span id = "throttle" class="num"> 00%</span>
+  </br>
+  <span class="connectionStatus">Coolant: </span>
+  <span id = "coolant" class="num"> 000</span>
+</div>
+
+<div id= "warnings" class = "warningsOff">
+  <img src="img/warning.png" class = "waringSmall">
+  <img src="img/warning.png" class = "waringSmaller">
+</div>
+
+
+<div class = "butt">
+<button id = "connect_button" type="button" name="button">Connect</button>
+<span class="connectionStatus">Connection Status: </span>
+<span id = "connectionStatus" class="connectionStatus"> offline</span>
+</div>
+
+</body>
+<script src="js/main.js"></script>
+</html>
