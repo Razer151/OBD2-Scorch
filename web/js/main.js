@@ -7,10 +7,25 @@ const THROTTLE = document.getElementById("throttle");
 const COOLANT = document.getElementById("coolant");
 const WARNINGS = document.getElementById("warnings");
 const SPINNER = document.getElementById("spinner");
+const POPUP = document.getElementById("popup");
+var TOGGLE = true;
 
-connection_button.onclick = function() {
+connectButton.onclick = function() {
   updateStatus("...");
   eel.connect_obd();
+}
+
+toggleButton.onclick = function() {
+  toggleCritical(TOGGLE);
+  toggleWarning(TOGGLE);
+  TOGGLE = !TOGGLE;
+}
+
+playLine1.onclick = function() {
+    play("../voices/scorch/d" + 1 + ".mp3");
+}
+playLine2.onclick = function() {
+    play("../voices/scorch/" + 1 + ".mp3");
 }
 
 eel.expose(promptAlerts);
@@ -26,6 +41,17 @@ function toggleWarning(warn){
   } else {
     WARNINGS.classList.remove("warningsOn");
     WARNINGS.classList.add("warningsOff");
+  }
+}
+
+eel.expose(toggleCritical);
+function toggleCritical(critical){
+  if(critical){
+    POPUP.classList.remove("popupOff");
+    POPUP.classList.add("popupOn");
+  } else {
+    POPUP.classList.remove("popupOn");
+    POPUP.classList.add("popupOff");
   }
 }
 

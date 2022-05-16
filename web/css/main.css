@@ -11,11 +11,31 @@ html{
 
 body {
     background-image: url(../img/background.jpg);
-    background-size: cover;
-    background-attachment: fixed;
+    overflow: hidden;
     width: 100%;
-    height: 75%;
+    height: 100%;
 }
+
+.gradient{
+  top: 0px;
+  left: 0px;
+  opacity: 10%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: block;
+  background-image: linear-gradient(to bottom right, black, var(--trim2));
+  z-index: 0;
+}
+
+/*Tacometer
+__________ __________    _____ ______
+\______   \\______   \  /     \     \
+ |       _/ |     ___/ /      \      \
+ |    |   \ |    |    /    |     /   |
+ |____|_  / |____|    \____\   /____|
+        \/                   \/
+*/
 
 .circles{
   top:0px;
@@ -65,6 +85,19 @@ body {
   border: 2px solid var(--trim2);
   border-bottom-right-radius:90px;  /* 100px of height + 10px of border */
   border-top-right-radius: 90px;
+}
+.orbitCircle2{
+  top: 10px;
+  left: 200px;
+  z-index: 0;
+  width: 500px;
+  height: 380px;
+  opacity: 30%;
+  background-color: black;
+  position:absolute;
+  border: 2px solid var(--trim2);
+  border-bottom-right-radius:180px;  /* 100px of height + 10px of border */
+  border-top-right-radius: 180px;
 }
 
 .halfCircle {
@@ -137,27 +170,184 @@ body {
   animation: spinInv 40s infinite linear;
   background-repeat: no-repeat;
 }
-
-/*Keyframes*/
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(359deg);
-  }
+/* speedo*/
+.circles2{
+  top:0px;
+  left:500px;
+  position:absolute;
+  width: 400px;
+  height: 400px;
 }
 
-@keyframes spinInv {
-  from {
-    transform: rotate(359deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
+/*popup
+__________ ________   __________  ____ ___ __________
+\______   \\_____  \  \______   \|    |   \\______   \
+ |     ___/ /   |   \  |     ___/|    |   / |     ___/
+ |    |    /    |    \ |    |    |    |  /  |    |
+ |____|    \_______  / |____|    |______/   |____|
+                   \/
+*/
+
+.popupOn{
+  top:10%;
+  left:5%;
+  height: 80%;
+  width: 90%;
+  opacity: 90%;
+  font-family: sabre;
+  position:absolute;
+  background-color: black;
+  border: 2px solid var(--trim1);
+  z-index: 200;
+  animation: popupFadeIn .2s;
+}
+.popupOff{
+  opacity: 0%;
+  top:0%;
+  left:0%;
+  position:absolute;
+  z-index: 0;
+}
+.popupBackground1{
+  width: 100%;
+  height: 10%;
+  position: absolute;
+  top: 0px;
+}
+.popupBackground2{
+  width: 100%;
+  height: 10%;
+  position: absolute;
+  bottom: 0px;
+}
+.progress-bar-warning {
+      background-color: var(--trim1) !important;
+}
+.popupHeader{
+  position: absolute;
+  top:40%;
+  left:5%;
+  width: 90%;
+  background-color: var(--trim1);
+  font-size: 60px;
+  font-family: mech;
+  text-align: center;
+  animation: blinker .5s linear infinite;
 }
 
-/*Fonts*/
+
+/*Warning flashers
+ __      __                         .__
+/  \    /  \_____   _______   ____  |__|  ____     ____
+\   \/\/   /\__  \  \_  __ \ /    \ |  | /    \   / ___\
+\        /  / __ \_ |  | \/|   |  \|  ||   |  \ / /_/  >
+ \__/\  /  (____  / |__|   |___|  /|__||___|  / \___  /
+      \/        \/              \/          \/ /_____/
+*/
+.waringSmall{
+  position: absolute;
+  top: 330px;
+  height: 70px;
+}
+
+.warningsOn{
+  animation: blinker .5s linear infinite;
+}
+.warningsOff{
+  animation: none;
+  opacity: 0%;
+}
+
+.waringSmaller{
+  position: absolute;
+  top: 0px;
+  left: 95px;
+  height: 30px;
+}
+
+.waringSmaller2{
+  position: absolute;
+  top: 340px;
+  left: 830px;
+  height: 50px;
+}
+
+.warningText{
+  font-size:20px;
+  position: absolute;
+  color: var(--trim1);
+  width: 300px;
+  height: 20px;
+  top:0;
+  left:540px;
+  font-family: mech;
+}
+
+/*Debug
+________   _____________________  ____ ___   ________
+\______ \  \_   _____/\______   \|    |   \ /  _____/
+ |    |  \  |    __)_  |    |  _/|    |   //   \  ___
+ |    `   \ |        \ |    |   \|    |  / \    \_\  \
+/_______  //_______  / |______  /|______/   \______  /
+        \/         \/         \/                   \/
+*/
+
+.num {
+    text-align: center;
+    font-weight: 200;
+    font-size: 30px;
+    line-height: normal;
+    color: #fff;
+    font-family: calamity;
+}
+
+.debug{
+  top:200px;
+  left:400px;
+  height: 190px;
+  width: 280px;
+  font-family: monospsace;
+  font-size: 20px;
+  position:absolute;
+  background-color: black;
+  border: 2px solid var(--trim1);
+  z-index: 4;
+}
+
+.butt{
+  top:10px;
+  left:900px;
+  height: 380px;
+  width: 250px;
+  font-family: sabre;
+  position:absolute;
+  background-color: black;
+  border: 2px solid var(--trim1);
+
+}
+.connectionStatus{
+  font-size: 30px;
+  font-family: monospsace;
+  color: #fff;
+}
+
+.details{
+  font-family: mech;
+  color: var(--trim1);
+  font-size: 20px;
+}
+
+
+
+
+/*Fonts
+___________________    _______   ___________  _________
+\_   _____/\_____  \   \      \  \__    ___/ /   _____/
+ |    __)   /   |   \  /   |   \   |    |    \_____  \
+ |     \   /    |    \/    |    \  |    |    /        \
+ \___  /   \_______  /\____|__  /  |____|   /_______  /
+     \/            \/         \/                    \/
+*/
 @font-face {
     font-family: sabre;
     src: url(../fonts/sabreshark.ttf);
@@ -179,86 +369,46 @@ body {
     src: url(../fonts/Calamity.otf);
 }
 
+/* keyframes
+____  __.________________.___.
+|    |/ _|\_   _____/\__  |   |
+|      <   |    __)_  /   |   |
+|    |  \  |        \ \____   |
+|____|__ \/_______  / / ______|
+       \/        \/  \/
+*/
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes spinInv {
+  from {
+    transform: rotate(359deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
 @keyframes blinker {
   50% {
     opacity: 0;
   }
 }
-
-.butt{
-  top:420px;
-  left:0px;
-  height: 50px;
-  width: 820px;
-  font-family: sabre;
-  position:absolute;
-  background-color: black;
-  border: 2px solid var(--trim1);
-}
-
-.popup{
-  top:10%;
-  left:10%;
-  height: 80%;
-  width: 80%;
-  opacity: 80%;
-  font-family: sabre;
-  position:absolute;
-  background-color: black;
-  border: 2px solid var(--trim1);
-  z-index: 200;
-}
-
-.debug{
-  top:200px;
-  left:420px;
-  height: 200px;
-  width: 400px;
-  font-family: monospsace;
-  font-size: 20px;
-  position:absolute;
-  background-color: black;
-  border: 2px solid var(--trim1);
-}
-
-.waringSmall{
-  position: absolute;
-  top: 330px;
-  height: 70px;
-}
-
-.warningsOn{
-  animation: blinker .5s linear infinite;
-}
-.warningsOff{
-  animation: none;
-  opacity: 10%;
-}
-
-.waringSmaller{
-  position: absolute;
-  top: 0px;
-  left: 95px;
-  height: 30px;
-}
-
-.num {
-    text-align: center;
-    font-weight: 200;
-    font-size: 30px;
-    line-height: normal;
-    color: #fff;
-    font-family: calamity;
-}
-
-.connectionStatus{
-  font-size: 30px;
-  font-family: monospsace;
-  color: #fff;
-}
-
-.details{
-  font-family: mech;
-  color: var(--trim1);
-  font-size: 20px;
+@keyframes popupFadeIn {
+  0% {
+    opacity:0;
+    width: 0px;
+    height: 0px;
+  }
+  100% {
+    opacity:.9;
+    width: 90%;
+    height: 80%;
+  }
 }

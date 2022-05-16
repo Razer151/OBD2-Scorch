@@ -12,13 +12,16 @@
 
 </head>
 <body>
+<div class="gradient" ></div>
+<div id="popup" class = "popupOff">
+    <div class = "popupBackground1"><div class="progress-bar progress-bar-sf progress-bar-striped active progress-bar-warning" style="width: 100%"></div></div>
+    <div class="popupHeader">
+      <span >WARNING</span>
+    </div>
 
-<div class = "popup">
-
-
+    <div class = "popupBackground2"><div class="progress-bar progress-bar-sf progress-bar-striped active progress-bar-warning" style="width: 100%"></div></div>
 </div>
 
-<span class="details">////</span>
 
 <div class = "circles">
 <div class="halfCircle" ></div>
@@ -32,38 +35,53 @@
 </span>
 </div>
 
-<div class = "orbitGauge">
-<span class = "speedo">
-</br></br>
+<div class = "circles2">
+<div class="halfCircle" ></div>
+<div id = "spinner" class="whiteCircle" ></div>
+<div class="blueCircle"></div>
+<div class="cyanCircle"></div>
+<span class = "circle">
+</br></br></br></br>
     <span id="speed" class="rpm">000</span> <br>
     <span class="rpmSmall">KPH</span>
 </span>
-<div class="orbitCircle1"></div>
+</div>
 
+<div class = "orbitGauge">
+<span class = "speedo">
+</br></br>
+    <span id="coolant" class="rpm">00</span> <br>
+    <span class="rpmSmall">TEMP</span>
+</span>
+<div class="orbitCircle1"></div>
+<div class="orbitCircle2"></div>
 </div>
 
 <div class = "debug">
+    </br></br></br>
   <span class="connectionStatus">Fuel:    </span>
   <span id = "fuel" class="num"> 00%</span>
   </br>
-  <span class="connectionStatus">Speed:   </span>
-  <span id = "speed" class="num"> 000 KPH</span>
-  </br>
   <span class="connectionStatus">Throttle: </span>
   <span id = "throttle" class="num"> 00%</span>
-  </br>
-  <span class="connectionStatus">Coolant: </span>
-  <span id = "coolant" class="num"> 000</span>
 </div>
 
 <div id= "warnings" class = "warningsOff">
   <img src="img/warning.png" class = "waringSmall">
   <img src="img/warning.png" class = "waringSmaller">
+  <img src="img/warning.png" class = "waringSmaller2">
+  <span class="warningText">ERROR</span>
+  <span class="details">////</span>
 </div>
 
 
 <div class = "butt">
-<button id = "connect_button" type="button" name="button">Connect</button>
+<button id = "connectButton" type="button" name="button">Connect</button>
+<button id = "toggleButton" type="button" name="button">Toggle</button>
+</br>
+<button id = "playLine1" type="button" name="button">Damage</button>
+<button id = "playLine2" type="button" name="button">start</button>
+</br>
 <span class="connectionStatus">Connection Status: </span>
 <span id = "connectionStatus" class="connectionStatus"> offline</span>
 </div>

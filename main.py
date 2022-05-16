@@ -117,20 +117,22 @@ def fakeui():
     rpm = 1000
     while rpm < 7000:
         k = random.randint(0, 1)
-        if rpm > 6000:
+        if rpm > 5700:
             if not warningOn:
                 warningOn = True
                 eel.toggleWarning(True)
+                eel.toggleCritical(True)
             shift()
         elif 3800 < rpm < 4000:
             boostReady()
         elif 2000 < rpm < 2500:
             damage()
-        if rpm < 6000 and warningOn:
+        if rpm < 5700 and warningOn:
             warningOn = False
             eel.toggleWarning(False)
+            eel.toggleCritical(False)
 
-        eel.updateReadout(roundup(rpm), math.floor((rpm/7000)*100), 79, 115, 40)
+        eel.updateReadout(roundup(rpm), 15, 79, math.floor((rpm/7000)*115), 40)
         if k > 0:
             rpm += 50.5
         else:
@@ -142,4 +144,4 @@ def roundup(x):
     return int(math.ceil(x / 100.0)) * 100
 
 
-eel.start('index.html', size=(1200, 520), position=(500, 0))
+eel.start('index.html', size=(1200, 460), position=(500, 0))
