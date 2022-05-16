@@ -50,7 +50,7 @@ def updateUI(connection):
         rpm = roundup(connection.query(obd.commands.RPM).value.magnitude)
         throttle = math.ceil(connection.query(obd.commands.THROTTLE_POS).value.magnitude)
         coolant = connection.query(obd.commands.COOLANT_TEMP).value.magnitude
-        speed = connection.query(obd.commands.SPEED).value.magnitude
+        speed = connection.query(obd.commands.SPEED).value.to('mph')
         fuel = math.ceil(connection.query(obd.commands.FUEL_LEVEL).value.magnitude)
         if rpm > 6000:
             shift()

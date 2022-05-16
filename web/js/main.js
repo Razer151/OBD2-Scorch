@@ -16,16 +16,37 @@ connectButton.onclick = function() {
 }
 
 toggleButton.onclick = function() {
-  toggleCritical(TOGGLE);
-  toggleWarning(TOGGLE);
   TOGGLE = !TOGGLE;
+  toggleWarning(TOGGLE);
+
 }
 
 playLine1.onclick = function() {
+    toggleCritical(true);
+    toggleWarning(true);
+    TOGGLE = true;
     play("../voices/scorch/d" + 1 + ".mp3");
 }
 playLine2.onclick = function() {
+  toggleCritical(false);
+  toggleWarning(false);
     play("../voices/scorch/" + 1 + ".mp3");
+}
+preset1.onclick = function() {
+  document.documentElement.style.setProperty('--trim1', 'orange');
+  document.documentElement.style.setProperty('--trim2', 'cyan');
+}
+preset2.onclick = function() {
+  document.documentElement.style.setProperty('--trim1', 'red');
+  document.documentElement.style.setProperty('--trim2', 'red');
+}
+preset3.onclick = function() {
+  document.documentElement.style.setProperty('--trim1', 'white');
+  document.documentElement.style.setProperty('--trim2', 'white');
+}
+preset4.onclick = function() {
+  document.documentElement.style.setProperty('--trim1', 'purple');
+  document.documentElement.style.setProperty('--trim2', 'purple');
 }
 
 eel.expose(promptAlerts);
