@@ -12,24 +12,25 @@
 
 </head>
 <body>
+<div style="screen">
+
 <div class="gradient" ></div>
 <div id="popup" class = "popupOff">
     <div class = "popupBackground1"><div class="progress-bar progress-bar-sf progress-bar-striped active progress-bar-warning" style="width: 100%"></div></div>
     <div class="popupHeader">
-      <span >WARNING</span>
+      <span class="scroller" >WARNING!</span>
     </div>
-
     <div class = "popupBackground2"><div class="progress-bar progress-bar-sf progress-bar-striped active progress-bar-warning" style="width: 100%"></div></div>
 </div>
 
 
 <div class = "circles">
 <div class="halfCircle" ></div>
-<div id = "spinner" class="whiteCircle" ></div>
-<div class="blueCircle"></div>
-<div class="cyanCircle"></div>
+<div id = "spinner" class="whiteCircle" ><img src="img/circle2.png" class = "spinning"></div>
+<div class="blueCircle"><img src="img/circle.png" class = "spinning"></div>
+<div class="cyanCircle"><img src="img/circle1.png" class = "spinning"></div>
 <span class = "circle">
-</br></br></br></br>
+</br></br></br>
     <span id="rpm" class="rpm">0000</span> <br>
     <span class="rpmSmall">RPM</span>
 </span>
@@ -37,11 +38,11 @@
 
 <div class = "circles2">
 <div class="halfCircle" ></div>
-<div id = "spinner" class="whiteCircle" ></div>
-<div class="blueCircle"></div>
-<div class="cyanCircle"></div>
+<div id = "spinner" class="whiteCircle" ><img src="img/circle2.png" class = "spinning"></div>
+<div class="blueCircle"><img src="img/circle.png" class = "spinning"></div>
+<div class="cyanCircle"><img src="img/circle1.png" class = "spinning"></div>
 <span class = "circle">
-</br></br></br></br>
+</br></br></br>
     <span id="speed" class="rpm">000</span> <br>
     <span class="rpmSmall">MPH</span>
 </span>
@@ -75,23 +76,19 @@
 </div>
 
 
-<div class = "butt">
-<button id = "connectButton" type="button" name="button">Connect</button>
-<button id = "toggleButton" type="button" name="button">Toggle</button>
-</br>
-<button id = "playLine1" type="button" name="button">Damage</button>
-<button id = "playLine2" type="button" name="button">start</button>
-</br>
-<button id = "preset1" type="button" name="button">orange</button>
-<button id = "preset2" type="button" name="button">red</button>
-</br>
-<button id = "preset3" type="button" name="button">white</button>
-<button id = "preset4" type="button" name="button">purple</button>
-</br>
-<span class="connectionStatus">Connection Status: </span>
-<span id = "connectionStatus" class="connectionStatus"> offline</span>
+<div class = "buttonBox">
+</br></br>
+<button class="sidebar" id = "connectButton" type="button" name="button">C</button>
+</br></br>
+<button class="sidebar" id = "playLine1" type="button" name="button">1</button>
+</br></br>
+<button class="sidebar" id = "playLine2" type="button" name="button">2</button>
+</br></br>
+<button class="sidebar" id = "preset2" type="button" name="button">R</button>
+
 </div>
 
+</div>
 </body>
 <script src="js/main.js"></script>
 </html>

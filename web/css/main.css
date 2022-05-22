@@ -7,6 +7,7 @@ html{
 :root {
   --trim1: orange;
   --trim2: cyan;
+  --absoluteHeight: 360px;
 }
 
 body {
@@ -14,6 +15,10 @@ body {
     overflow: hidden;
     width: 100%;
     height: 100%;
+}
+.screen{
+  width: 1280px;
+  height: 360px;
 }
 
 .gradient{
@@ -38,11 +43,11 @@ __________ __________    _____ ______
 */
 
 .circles{
-  top:0px;
-  left:0px;
+  top:10px;
+  left:10px;
   position:absolute;
-  width: 400px;
-  height: 400px;
+  width: 360px;
+  height: 360px;
 }
 .circle {
     top: 20%;
@@ -59,6 +64,89 @@ __________ __________    _____ ______
     border: 2px solid var(--trim1);
 }
 
+
+
+.halfCircle {
+    top: 0%;
+    left: 50%;
+    height: 100%;
+    width: 50%;
+    opacity: 75%;
+
+    position: absolute;
+    border-bottom-right-radius: 180px; /* 1/2 of height + 10px of border */
+    border-top-right-radius: 180px; /* 1/2 of height + 10px of border */
+    background-color: black;
+    border: 2px solid var(--trim1);
+    z-index: 4;
+}
+
+.rpm {
+    font-weight: 200;
+    font-size: 60px;
+    line-height: normal;
+    color: #fff;
+    font-variant-numeric: lining-nums;
+    font-family: calamity;
+}
+.rpmSmall {
+    text-align: center;
+    font-weight: 200;
+    font-size: 30px;
+    line-height: normal;
+    color: #fff;
+    font-family: sabre;
+}
+
+.blueCircle{
+  top:0%;
+  left:0%;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  opacity: 25%;
+  position: relative;
+  animation: spinInv 80s infinite linear;
+  background-repeat: no-repeat;
+}
+
+.cyanCircle{
+  top:0%;
+  left:0%;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 20%;
+  position: absolute;
+  animation: spin 50s infinite linear;
+  background-repeat: no-repeat;
+}
+
+.whiteCircle{
+  top:0%;
+  left:0%;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  opacity: 30%;
+  position: absolute;
+  animation: spinInv 40s infinite linear;
+  background-repeat: no-repeat;
+}
+/* speedo*/
+.circles2{
+  top:10px;
+  left:520px;
+  position:absolute;
+  width: var(--absoluteHeight);
+  height: var(--absoluteHeight);
+}
+.spinning{
+  width: 100%;
+  height: auto;
+}
+
+/* temp*/
 .speedo {
     top: 10px;
     left: 380px;
@@ -88,95 +176,16 @@ __________ __________    _____ ______
 }
 .orbitCircle2{
   top: 10px;
-  left: 200px;
+  left: 180px;
   z-index: 0;
   width: 500px;
-  height: 380px;
+  height: 360px;
   opacity: 30%;
   background-color: black;
   position:absolute;
   border: 2px solid var(--trim2);
   border-bottom-right-radius:180px;  /* 100px of height + 10px of border */
   border-top-right-radius: 180px;
-}
-
-.halfCircle {
-    top: 10px;
-    left: 200px;
-    height:380px;
-    width:190px;
-    opacity: 75%;
-
-    position: absolute;
-    border-bottom-right-radius: 200px; /* 100px of height + 10px of border */
-    border-top-right-radius: 200px; /* 100px of height + 10px of border */
-    background-color: black;
-    border: 2px solid var(--trim1);
-    z-index: 4;
-}
-
-.rpm {
-    font-weight: 200;
-    font-size: 60px;
-    line-height: normal;
-    color: #fff;
-    font-variant-numeric: lining-nums;
-    font-family: calamity;
-}
-.rpmSmall {
-    text-align: center;
-    font-weight: 200;
-    font-size: 30px;
-    line-height: normal;
-    color: #fff;
-    font-family: sabre;
-}
-
-.blueCircle{
-  top:0px;
-  left:0px;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  opacity: 25%;
-  position:absolute;
-  background-image: url(../img/circle.png);
-  animation: spinInv 80s infinite linear;
-  background-repeat: no-repeat;
-}
-
-.cyanCircle{
-  top:0px;
-  left:0px;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  opacity: 20%;
-  position:absolute;
-  background-image: url(../img/circle1.png);
-  animation: spin 50s infinite linear;
-  background-repeat: no-repeat;
-}
-
-.whiteCircle{
-  top:0px;
-  left:0px;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  opacity: 30%;
-  position:absolute;
-  background-image: url(../img/circle2.png);
-  animation: spinInv 40s infinite linear;
-  background-repeat: no-repeat;
-}
-/* speedo*/
-.circles2{
-  top:0px;
-  left:500px;
-  position:absolute;
-  width: 400px;
-  height: 400px;
 }
 
 /*popup
@@ -233,6 +242,13 @@ __________ ________   __________  ____ ___ __________
   font-family: mech;
   text-align: center;
   animation: blinker .5s linear infinite;
+  z-index: 50;
+}
+
+.warningFiller{
+  position: absolute;
+  top: 10%;
+  color: grey;
 }
 
 
@@ -246,7 +262,7 @@ __________ ________   __________  ____ ___ __________
 */
 .waringSmall{
   position: absolute;
-  top: 330px;
+  top: 300px;
   height: 70px;
 }
 
@@ -255,7 +271,7 @@ __________ ________   __________  ____ ___ __________
 }
 .warningsOff{
   animation: none;
-  opacity: 0%;
+  opacity: 40%;
 }
 
 .waringSmaller{
@@ -267,9 +283,9 @@ __________ ________   __________  ____ ___ __________
 
 .waringSmaller2{
   position: absolute;
-  top: 340px;
-  left: 830px;
-  height: 50px;
+  top: 300px;
+  left: 820px;
+  height: 60px;
 }
 
 .warningText{
@@ -303,9 +319,9 @@ ________   _____________________  ____ ___   ________
 
 .debug{
   top:200px;
-  left:400px;
-  height: 190px;
-  width: 280px;
+  left: 380px;
+  height: 170px;
+  width: 290px;
   font-family: monospsace;
   font-size: 20px;
   position:absolute;
@@ -314,27 +330,24 @@ ________   _____________________  ____ ___   ________
   z-index: 4;
 }
 
-.butt{
+.buttonBox{
   top:10px;
-  left:900px;
-  height: 380px;
-  width: 250px;
-  font-family: sabre;
+  right:5px;
+  height: var(--absoluteHeight);
+  width: 60px;
   position:absolute;
   background-color: black;
   border: 2px solid var(--trim1);
-
-}
-.connectionStatus{
-  font-size: 30px;
-  font-family: monospsace;
-  color: #fff;
+  vertical-align: middle;
 }
 
-.details{
-  font-family: mech;
+.sidebar{
+  width: 55px;
+  height: 55px;
+  background-color: black;
+  border: 2px solid var(--trim1);
   color: var(--trim1);
-  font-size: 20px;
+  font-family: mech;
 }
 
 
@@ -411,4 +424,16 @@ ____  __.________________.___.
     width: 90%;
     height: 80%;
   }
+
+  0% {
+  top: 0;
+}
+}
+
+@keyframes scroll {
+0% {
+left: 100%;
+75% {
+left: -200%;
+}
 }

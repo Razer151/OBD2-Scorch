@@ -117,16 +117,14 @@ def fakeui():
     rpm = 1000
     while rpm < 7000:
         k = random.randint(0, 1)
-        if rpm > 5700:
+        if rpm > 6000:
             if not warningOn:
                 warningOn = True
                 eel.toggleWarning(True)
                 eel.toggleCritical(True)
-            shift()
+            damage()
         elif 3800 < rpm < 4000:
             boostReady()
-        elif 2000 < rpm < 2500:
-            damage()
         if rpm < 5700 and warningOn:
             warningOn = False
             eel.toggleWarning(False)
