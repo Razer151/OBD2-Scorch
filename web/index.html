@@ -26,7 +26,7 @@
 
 <div class = "circles">
 <div class="halfCircle" ></div>
-<div id = "spinner" class="whiteCircle" ><img src="img/circle2.png" class = "spinning"></div>
+<div class="whiteCircle" ><img src="img/circle2.png" class = "spinning"></div>
 <div class="blueCircle"><img src="img/circle.png" class = "spinning"></div>
 <div class="cyanCircle"><img src="img/circle1.png" class = "spinning"></div>
 <span class = "circle">
@@ -34,11 +34,13 @@
     <span id="rpm" class="rpm">0000</span> <br>
     <span class="rpmSmall">RPM</span>
 </span>
+<img id = "rpmTac" src="img/14.png" class = "tac">
+<div class="halfCircleBackground" ></div>
 </div>
 
 <div class = "circles2">
 <div class="halfCircle" ></div>
-<div id = "spinner" class="whiteCircle" ><img src="img/circle2.png" class = "spinning"></div>
+<div class="whiteCircle" ><img src="img/circle2.png" class = "spinning"></div>
 <div class="blueCircle"><img src="img/circle.png" class = "spinning"></div>
 <div class="cyanCircle"><img src="img/circle1.png" class = "spinning"></div>
 <span class = "circle">
@@ -46,6 +48,8 @@
     <span id="speed" class="rpm">000</span> <br>
     <span class="rpmSmall">MPH</span>
 </span>
+<img id = "speedTac" src="img/14.png" class = "tac">
+<div class="halfCircleBackground" ></div>
 </div>
 
 <div class = "orbitGauge">
@@ -59,12 +63,32 @@
 </div>
 
 <div class = "debug">
-    </br></br></br>
-  <span class="connectionStatus">Fuel:    </span>
+  </br>
+  <span class="misc">Fuel:    </span>
   <span id = "fuel" class="num"> 00%</span>
   </br>
-  <span class="connectionStatus">Throttle: </span>
+  <span class="misc">Throttle: </span>
   <span id = "throttle" class="num"> 00%</span>
+  </br>
+  <span class="misc">Oil Temp: </span>
+  <span id = "oil" class="num"> 00%</span>
+</div>
+
+<div class = "Specs">
+    <img src="img/model.png" class = "model">
+    </br></br>
+    <div class="loadBackground">
+      <div id = "throttleBar" class="progress-bar progress-bar-sf progress-bar-striped active progress-bar-warning" style="width: 45%"></div>
+    </div>
+    </br>
+    <div class="loadBackground">
+      <div id = "oilBar" class="progress-bar progress-bar-sf progress-bar-striped active progress-bar-warning" style="width: 25%"></div>
+    </div>
+    </br>
+    <div class="loadBackground">
+      <div id = "gasBar" class="progress-bar progress-bar-sf progress-bar-striped active progress-bar-warning" style="width: 75%"></div>
+    </div>
+
 </div>
 
 <div id= "warnings" class = "warningsOff">

@@ -64,9 +64,31 @@ __________ __________    _____ ______
     border: 2px solid var(--trim1);
 }
 
-
+.tac{
+  top:10px;
+  left:11px;
+  position:absolute;
+  width: 340px;
+  height: 340px;
+  opacity: 70%;
+  z-index: 3;
+}
 
 .halfCircle {
+    top: 0%;
+    left: 50%;
+    height: 100%;
+    width: 50%;
+    opacity: 100%;
+
+    position: absolute;
+    border-bottom-right-radius: 180px; /* 1/2 of height + 10px of border */
+    border-top-right-radius: 180px; /* 1/2 of height + 10px of border */
+    border: 2px solid var(--trim1);
+    z-index: 4;
+}
+
+.halfCircleBackground {
     top: 0%;
     left: 50%;
     height: 100%;
@@ -76,9 +98,9 @@ __________ __________    _____ ______
     position: absolute;
     border-bottom-right-radius: 180px; /* 1/2 of height + 10px of border */
     border-top-right-radius: 180px; /* 1/2 of height + 10px of border */
-    background-color: black;
     border: 2px solid var(--trim1);
-    z-index: 4;
+    background-color: black;
+    z-index: 2;
 }
 
 .rpm {
@@ -330,6 +352,10 @@ ________   _____________________  ____ ___   ________
   z-index: 4;
 }
 
+.misc{
+  color: white;
+}
+
 .buttonBox{
   top:10px;
   right:5px;
@@ -349,6 +375,36 @@ ________   _____________________  ____ ___   ________
   color: var(--trim1);
   font-family: mech;
 }
+
+/* model*/
+.Specs{
+  width: 250px;
+  height: 210px;
+  left: 900px;
+  top: 10px;
+  position: absolute;
+}
+
+.model{
+  height: 100%;
+  width: auto;
+  border: 2px solid var(--trim1);
+}
+
+.loadingbar{
+  height: 100%;
+  width: 80%;
+  background-color: var(--trim1);
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.loadBackground{
+  height: 20px;
+  width: 100%;
+  background-color: black;
+  border: 2px solid var(--trim1);
+}
+
 
 
 

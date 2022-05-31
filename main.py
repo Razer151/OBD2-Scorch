@@ -42,16 +42,20 @@ def connect_obd():
 
 def updateUI(connection):
     welcomePilot()
-    codes = connection.query(obd.commands.GET_DTC)
+    codes = connection.query(obd.commands.GET_CURRENT_DTC)
     print(codes)
-    global warm;
-    global warningOn;
+    global warm
+    global warningOn
     while True:
         rpm = roundup(connection.query(obd.commands.RPM).value.magnitude)
         throttle = math.ceil(connection.query(obd.commands.THROTTLE_POS).value.magnitude)
         coolant = connection.query(obd.commands.COOLANT_TEMP).value.magnitude
-        speed = connection.query(obd.commands.SPEED).value.to('mph')
+        speed = connection.query(obd.commands.SPEED).value.magnitude.to('mph')
         fuel = math.ceil(connection.query(obd.commands.FUEL_LEVEL).value.magnitude)
+        oil = connection.query(obd.commands.OIL_TEMP).value.magnitude
+        tac1 = math.floor((rpm / 7000) * 14)
+        tac2 = math.floor((speed / 150) * 14)
+
         if rpm > 6000:
             shift()
         if rpm > 5700 and not warningOn:
@@ -62,7 +66,7 @@ def updateUI(connection):
             boostReady()
         elif coolant < 75 and rpm > 4000 and not warm:
             damage()
-        eel.updateReadout(rpm, throttle, coolant, speed, fuel)
+        eel.updateReadout(rpm, throttle, coolant, speed, fuel, oil, tac1, tac2)
         eel.sleep(0.01)
 
 
@@ -115,9 +119,12 @@ def fakeui():
     global warningOn
     welcomePilot()
     rpm = 1000
+    oil = 60
+    gas = 50
     while rpm < 7000:
         k = random.randint(0, 1)
         if rpm > 6000:
+            gas = 0
             if not warningOn:
                 warningOn = True
                 eel.toggleWarning(True)
@@ -125,14 +132,20 @@ def fakeui():
             damage()
         elif 3800 < rpm < 4000:
             boostReady()
+            gas = 34
+            oil = 76
         if rpm < 5700 and warningOn:
             warningOn = False
             eel.toggleWarning(False)
             eel.toggleCritical(False)
 
-        eel.updateReadout(roundup(rpm), 15, 79, math.floor((rpm/7000)*115), 40)
+        speed = math.floor((rpm/7000)*150)
+
+        tac1 = "img/" + str(math.floor((rpm/7000) * 14)) + ".png"
+        tac2 = "img/" + str(math.floor((speed / 150) * 14)) + ".png"
+        eel.updateReadout(roundup(rpm), 15, 79, speed, gas, oil, tac1, tac2)
         if k > 0:
-            rpm += 50.5
+            rpm += 150.5
         else:
             rpm = rpm
         eel.sleep(.05)
@@ -142,4 +155,4 @@ def roundup(x):
     return int(math.ceil(x / 100.0)) * 100
 
 
-eel.start('index.html', size=(1200, 460), position=(500, 0))
+eel.start('index.html', size=(1280, 460), position=(500, 0))
