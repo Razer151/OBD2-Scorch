@@ -50,11 +50,14 @@ def updateUI(connection):
         rpm = roundup(connection.query(obd.commands.RPM).value.magnitude)
         throttle = math.ceil(connection.query(obd.commands.THROTTLE_POS).value.magnitude)
         coolant = connection.query(obd.commands.COOLANT_TEMP).value.magnitude
-        speed = connection.query(obd.commands.SPEED).value.magnitude.to('mph')
+        speed = connection.query(obd.commands.SPEED).value.magnitude
         fuel = math.ceil(connection.query(obd.commands.FUEL_LEVEL).value.magnitude)
-        oil = connection.query(obd.commands.OIL_TEMP).value.magnitude
-        tac1 = math.floor((rpm / 7000) * 14)
-        tac2 = math.floor((speed / 150) * 14)
+        #oil = connection.query(obd.commands.OIL_TEMP).value.magnitude
+        oil = 0
+        tac1 = "img/" + str(math.floor((rpm / 7000) * 14)) + ".png"
+        tac2 = "img/" + str(math.floor((speed / 220) * 14)) + ".png"
+
+        print(tac2)
 
         if rpm > 6000:
             shift()

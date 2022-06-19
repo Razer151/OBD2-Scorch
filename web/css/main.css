@@ -293,7 +293,7 @@ __________ ________   __________  ____ ___ __________
 }
 .warningsOff{
   animation: none;
-  opacity: 40%;
+  opacity: 0%;
 }
 
 .waringSmaller{
