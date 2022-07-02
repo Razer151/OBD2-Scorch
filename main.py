@@ -30,46 +30,66 @@ def connect_obd():
     connection = obd.OBD()
     connected = connection.is_connected()
     if not connected:
-        print("no connection found, starting test mode...")
-        eel.sleep(2)
-        eel.updateStatus("Testing")
-        fakeui()
+        print("no connection found...")
+        eel.updateStatus("Connection failed")
     else:
         print("connection found")
         eel.updateStatus(connection.port_name())
         updateUI(connection)
 
+@eel.expose
+def connect_obd_test():
+    # search for OBD port
+    print("attempting connection")
+    print("starting test mode...")
+    eel.sleep(1)
+    fakeui()
+
 
 def updateUI(connection):
+    # play welcome voice line
     welcomePilot()
-    codes = connection.query(obd.commands.GET_CURRENT_DTC)
-    print(codes)
+
+    # introduce global voice lines and warning popup status
     global warm
     global warningOn
+
+    # GUI control loop. should get variables and update UI in multiple threads/Multiple API updates,
+    # but too lazy to set up
     while True:
         rpm = roundup(connection.query(obd.commands.RPM).value.magnitude)
         throttle = math.ceil(connection.query(obd.commands.THROTTLE_POS).value.magnitude)
         coolant = connection.query(obd.commands.COOLANT_TEMP).value.magnitude
         speed = connection.query(obd.commands.SPEED).value.magnitude
         fuel = math.ceil(connection.query(obd.commands.FUEL_LEVEL).value.magnitude)
-        #oil = connection.query(obd.commands.OIL_TEMP).value.magnitude
-        oil = 0
+
+        # oil temp not supported on a WRX STI
+        # oil = connection.query(obd.commands.OIL_TEMP).value.magnitude
+
+        # calculate which PNG should be displayed on the TAC
         tac1 = "img/" + str(math.floor((rpm / 7000) * 14)) + ".png"
         tac2 = "img/" + str(math.floor((speed / 220) * 14)) + ".png"
 
-        print(tac2)
-
+        # action flags
+        # critical shift warning
         if rpm > 6000:
             shift()
+        # warning on
         if rpm > 5700 and not warningOn:
             toggleWarningMode(True)
+        # disable warning popup
         elif rpm < 5700 and warningOn:
             toggleWarningMode(False)
+
+        # verbal update that car is up to temp
         if coolant > 80 and not warm:
             boostReady()
+        # warning if speeding before up to temp
         elif coolant < 75 and rpm > 4000 and not warm:
             damage()
-        eel.updateReadout(rpm, throttle, coolant, speed, fuel, oil, tac1, tac2)
+
+        # push frontend UI updates
+        eel.updateReadout(rpm, throttle, coolant, speed, fuel, tac1, tac2)
         eel.sleep(0.01)
 
 
@@ -122,7 +142,6 @@ def fakeui():
     global warningOn
     welcomePilot()
     rpm = 1000
-    oil = 60
     gas = 50
     while rpm < 7000:
         k = random.randint(0, 1)
@@ -136,7 +155,6 @@ def fakeui():
         elif 3800 < rpm < 4000:
             boostReady()
             gas = 34
-            oil = 76
         if rpm < 5700 and warningOn:
             warningOn = False
             eel.toggleWarning(False)
@@ -146,7 +164,8 @@ def fakeui():
 
         tac1 = "img/" + str(math.floor((rpm/7000) * 14)) + ".png"
         tac2 = "img/" + str(math.floor((speed / 150) * 14)) + ".png"
-        eel.updateReadout(roundup(rpm), 15, 79, speed, gas, oil, tac1, tac2)
+
+        eel.updateReadout(roundup(rpm), 15, 79, speed, gas, tac1, tac2)
         if k > 0:
             rpm += 150.5
         else:

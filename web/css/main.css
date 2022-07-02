@@ -5,7 +5,7 @@ html{
 }
 
 :root {
-  --trim1: orange;
+  --trim1: red;
   --trim2: cyan;
   --absoluteHeight: 360px;
 }
@@ -196,6 +196,7 @@ __________ __________    _____ ______
   border-bottom-right-radius:90px;  /* 100px of height + 10px of border */
   border-top-right-radius: 90px;
 }
+
 .orbitCircle2{
   top: 10px;
   left: 180px;
@@ -232,6 +233,7 @@ __________ ________   __________  ____ ___ __________
   z-index: 200;
   animation: popupFadeIn .2s;
 }
+
 .popupOff{
   opacity: 0%;
   top:0%;
@@ -239,21 +241,25 @@ __________ ________   __________  ____ ___ __________
   position:absolute;
   z-index: 0;
 }
+
 .popupBackground1{
   width: 100%;
   height: 10%;
   position: absolute;
   top: 0px;
 }
+
 .popupBackground2{
   width: 100%;
   height: 10%;
   position: absolute;
   bottom: 0px;
 }
+
 .progress-bar-warning {
       background-color: var(--trim1) !important;
 }
+
 .popupHeader{
   position: absolute;
   top:40%;
@@ -286,6 +292,7 @@ __________ ________   __________  ____ ___ __________
   position: absolute;
   top: 300px;
   height: 70px;
+  opacity: 0%;
 }
 
 .warningsOn{
@@ -301,6 +308,7 @@ __________ ________   __________  ____ ___ __________
   top: 0px;
   left: 95px;
   height: 30px;
+  opacity: 0%;
 }
 
 .waringSmaller2{
@@ -308,6 +316,7 @@ __________ ________   __________  ____ ___ __________
   top: 300px;
   left: 820px;
   height: 60px;
+  opacity: 0%;
 }
 
 .warningText{
@@ -318,6 +327,17 @@ __________ ________   __________  ____ ___ __________
   height: 20px;
   top:0;
   left:530px;
+  font-family: mech;
+}
+
+.details{
+  font-size:20px;
+  position: absolute;
+  color: var(--trim1);
+  width: 300px;
+  height: 20px;
+  top:0;
+  left:20px;
   font-family: mech;
 }
 
@@ -333,7 +353,7 @@ ________   _____________________  ____ ___   ________
 .num {
     text-align: center;
     font-weight: 200;
-    font-size: 30px;
+    font-size: 20px;
     line-height: normal;
     color: #fff;
     font-family: calamity;
@@ -354,6 +374,7 @@ ________   _____________________  ____ ___   ________
 
 .misc{
   color: white;
+  font-family: sabre;
 }
 
 .buttonBox{
@@ -389,6 +410,7 @@ ________   _____________________  ____ ___   ________
   height: 100%;
   width: auto;
   border: 2px solid var(--trim1);
+  opacity: 0%;
 }
 
 .loadingbar{
@@ -398,6 +420,7 @@ ________   _____________________  ____ ___   ________
   border-bottom-right-radius: 3px;
   border-top-right-radius: 3px;
 }
+
 .loadBackground{
   height: 20px;
   width: 100%;

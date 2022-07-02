@@ -5,7 +5,6 @@ const FUEL = document.getElementById("fuel");
 const SPEED = document.getElementById("speed");
 const THROTTLE = document.getElementById("throttle");
 const COOLANT = document.getElementById("coolant");
-const OIL = document.getElementById("oil");
 const WARNINGS = document.getElementById("warnings");
 const POPUP = document.getElementById("popup");
 const RPMTAC = document.getElementById("rpmTac");
@@ -13,7 +12,6 @@ const SPEEDTAC = document.getElementById("speedTac");
 
 const GASBAR = document.getElementById("gasBar");
 const THROTTLEBAR = document.getElementById("throttleBar");
-const OILBAR = document.getElementById("oilBar");
 var TOGGLE = true;
 
 
@@ -34,8 +32,7 @@ playLine2.onclick = function() {
 }
 
 preset2.onclick = function() {
-  document.documentElement.style.setProperty('--trim1', 'red');
-  document.documentElement.style.setProperty('--trim2', 'red');
+  eel.connect_obd_test();
 }
 
 
@@ -78,13 +75,12 @@ function play(filePath) {
 }
 
 eel.expose(updateReadout);
-function updateReadout(rpm, throttle, coolant, speed, fuel, oil, tac1, tac2) {
+function updateReadout(rpm, throttle, coolant, speed, fuel, tac1, tac2) {
     RPM.textContent = rpm;
     FUEL.textContent = fuel;
     THROTTLE.textContent = throttle;
     COOLANT.textContent = coolant;
     SPEED.textContent = speed;
-    OIL.textContent = oil;
 
 
     RPMTAC.src= tac1;
@@ -92,7 +88,6 @@ function updateReadout(rpm, throttle, coolant, speed, fuel, oil, tac1, tac2) {
     //RPM.textContent = 'img/'+tacPercentage(rpm, 7500)+'.png';
 
     GASBAR.style.width = fuel+"%";
-    OILBAR.style.width = oil+"%";
     THROTTLEBAR.style.width = throttle+"%";
 
 }
