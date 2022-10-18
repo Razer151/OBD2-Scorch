@@ -42,13 +42,15 @@ def connect_obd_test():
     # search for OBD port
     print("attempting connection")
     print("starting test mode...")
-    eel.sleep(1)
+    eel.sleep(6)
     fakeui()
 
 
 def updateUI(connection):
     # play welcome voice line
     welcomePilot()
+    # this allows the visual effects to play before we start transmitting data
+    eel.sleep(2)
 
     # introduce global voice lines and warning popup status
     global warm
@@ -99,6 +101,7 @@ def welcomePilot():
     print(path)
     resetLastVoiceLine()
     eel.play(path)
+    eel.removeSplash()
 
 
 def boostReady():
@@ -141,6 +144,8 @@ def titanDown():
 def fakeui():
     global warningOn
     welcomePilot()
+    # this allows the visual effects to play before we start transmitting data
+    eel.sleep(2)
     rpm = 1000
     gas = 50
     while rpm < 7000:

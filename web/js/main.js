@@ -10,6 +10,14 @@ const POPUP = document.getElementById("popup");
 const RPMTAC = document.getElementById("rpmTac");
 const SPEEDTAC = document.getElementById("speedTac");
 
+const SPLASHSCREEN = document.getElementById("splashScreen");
+const POWERBUTTON = document.getElementById("powerUp");
+const SPLASHCIRC1 = document.getElementById("splashedCirc1");
+const SPLASHCIRC3 = document.getElementById("splashedCirc3");
+const TERMINAL = document.getElementById("terminal");
+
+
+
 const GASBAR = document.getElementById("gasBar");
 const THROTTLEBAR = document.getElementById("throttleBar");
 var TOGGLE = true;
@@ -30,11 +38,23 @@ playLine2.onclick = function() {
   toggleWarning(false);
     play("../voices/scorch/" + 1 + ".mp3");
 }
-
 preset2.onclick = function() {
   eel.connect_obd_test();
 }
 
+powerUp.onclick = function() {
+  POWERBUTTON.classList.remove("power");
+  POWERBUTTON.classList.add("powerClicked");
+
+  SPLASHCIRC1.classList.remove("whiteCircleSplash");
+  SPLASHCIRC1.classList.add("whiteCircleSplashClicked");
+
+  SPLASHCIRC3.classList.remove("whiteCircleSplash3");
+  SPLASHCIRC3.classList.add("whiteCircleSplashClicked3");
+  eel.connect_obd_test();
+
+
+}
 
 eel.expose(promptAlerts);
 function promptAlerts(description) {
@@ -66,6 +86,12 @@ function toggleCritical(critical){
 eel.expose(updateStatus);
 function updateStatus(description) {
   //STATUS.textContent = description;
+}
+
+eel.expose(removeSplash);
+function removeSplash(description) {
+  SPLASHSCREEN.classList.remove("splash");
+  SPLASHSCREEN.classList.add("splashOff");
 }
 
 eel.expose(play);

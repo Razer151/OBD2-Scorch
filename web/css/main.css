@@ -5,8 +5,9 @@ html{
 }
 
 :root {
-  --trim1: red;
-  --trim2: cyan;
+  --trim1: #FF4A57;
+  --trim11: #672026;
+  --trim2: #25E1ED;
   --absoluteHeight: 360px;
 }
 
@@ -18,7 +19,7 @@ body {
 }
 .screen{
   width: 1280px;
-  height: 360px;
+  height: 460px;
 }
 
 .gradient{
@@ -300,7 +301,7 @@ __________ ________   __________  ____ ___ __________
 }
 .warningsOff{
   animation: none;
-  opacity: 0%;
+  opacity: 15%;
 }
 
 .waringSmaller{
@@ -410,7 +411,7 @@ ________   _____________________  ____ ___   ________
   height: 100%;
   width: auto;
   border: 2px solid var(--trim1);
-  opacity: 0%;
+  opacity: 100%;
 }
 
 .loadingbar{

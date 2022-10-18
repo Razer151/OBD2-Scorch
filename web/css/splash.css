@@ -1,0 +1,196 @@
+.splash{
+  opacity: 100%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: black;
+  z-index: 50;
+}
+
+.splashOff{
+  opacity: 0%;
+  width: 0%;
+  height: 0%;
+  position: absolute;
+  background-color: black;
+  z-index: -1;
+}
+
+.power{
+      z-index: 5;
+      top: 130px;
+      left: 540px;
+      height:200px;
+      width:200px;
+      position: absolute;
+      background-color: var(--trim1);
+      border-radius: 50%;
+      display: inline-block;
+      opacity: 100%;
+      text-align: center;
+      border: 5px solid var(--trim1);
+      box-shadow: 0px 0px 40px 20px var(--trim11);
+}
+
+.powerClicked{
+      top: 130px;
+      left: 540px;
+      z-index: 5;
+      height:200px;
+      width:200px;
+      position: absolute;
+      background-color: var(--trim2);
+      border-radius: 50%;
+      display: inline-block;
+      opacity: 100%;
+      text-align: center;
+      border: 5px solid var(--trim2);
+      box-shadow: 0px 0px 40px 20px var(--trim2);
+      animation: glitchy 10s infinite linear;
+      animation: pullApart 5s infinite linear;
+}
+
+.whiteCircleSplash{
+  top: 80px;
+  left: 490px;
+  z-index: 1;
+  height:300px;
+  width:300px;
+  opacity: 30%;
+  position: absolute;
+  animation: spin 10s infinite linear;
+  background-repeat: no-repeat;
+}
+
+.whiteCircleSplashClicked{
+  top: 80px;
+  left: 490px;
+  z-index: 1;
+  height:300px;
+  width:300px;
+  opacity: 30%;
+  position: absolute;
+  animation: pullApart2 5s infinite linear;
+  background-repeat: no-repeat;
+}
+
+.whiteCircleSplash3{
+  top: 80px;
+  left: 490px;
+  z-index: 1;
+  height:300px;
+  width:300px;
+  opacity: 0%;
+  position: absolute;
+  animation: spin 10s infinite linear;
+  background-repeat: no-repeat;
+}
+
+.whiteCircleSplashClicked3{
+  top: 80px;
+  left: 490px;
+  z-index: 1;
+  height:300px;
+  width:300px;
+  opacity: 40%;
+  position: absolute;
+  animation: pullApart3 5s infinite linear;
+  background-repeat: no-repeat;
+}
+
+.whiteCircleSplash2{
+  top: 130px;
+  left: 540px;
+  z-index: 1;
+  height:200px;
+  width:200px;
+  opacity: 40%;
+  position: absolute;
+  animation: spin 5s infinite linear;
+  background-repeat: no-repeat;
+}
+.spinningSplash{
+  width: 100%;
+  height: auto;
+}
+
+.version{
+  text-align: center;
+  font-weight: 200;
+  font-size: 20px;
+  line-height: normal;
+  color: var(--trim1);
+  font-family: glitch;
+
+
+}
+
+.versionNumber{
+  text-align: center;
+  font-weight: 200;
+  font-size: 20px;
+  line-height: normal;
+  color: var(--trim2);
+  font-family: glitch;
+  animation: glitchy 5s infinite linear;
+}
+
+.terminal{
+  color: var(--trim11);
+}
+
+@keyframes glitchy {
+  49% {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 50%;
+  }
+  51% {
+    opacity: 100%;
+  }
+  52% {
+    opacity: 60%;
+  }
+  55% {
+    opacity: 100%;
+  }
+}
+
+@keyframes pullApart {
+  50% {
+    position: absolute;
+    top: 160px;
+    left: 510px;
+  }
+}
+
+@keyframes pullApart2 {
+  50% {
+    position: absolute;
+    top: 30px;
+    left: 440px;
+    height:400px;
+    width:400px;
+  }
+  from {
+    transform: rotate(719deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes pullApart3 {
+  50% {
+    position: absolute;
+    top: 50px;
+    left: 520px;
+  }
+  from {
+    transform: rotate(359deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
